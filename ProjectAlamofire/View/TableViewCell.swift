@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class TableViewCell: UITableViewCell {
     
     static let identifier = "TableViewCell"
@@ -20,12 +19,12 @@ class TableViewCell: UITableViewCell {
         return name
     }()
     
-        private lazy var type: UILabel = {
-            var type = UILabel()
-            type.font = .systemFont(ofSize: 15)
-            type.translatesAutoresizingMaskIntoConstraints = false
-            return type
-        }()
+    private lazy var type: UILabel = {
+        var type = UILabel()
+        type.font = .systemFont(ofSize: 15)
+        type.translatesAutoresizingMaskIntoConstraints = false
+        return type
+    }()
     
     private lazy var imageUrl: UIImageView = {
         var imageUrl = UIImageView()
@@ -41,15 +40,12 @@ class TableViewCell: UITableViewCell {
             guard let imagePath = card?.imageUrl,
                   let imageUrl = URL(string: imagePath),
                   let imageData = try? Data(contentsOf: imageUrl)
-                    
             else {
                 self.imageUrl.image = UIImage(named: "card")
-                
                 return
             }
             
             self.imageUrl.image = UIImage(data: imageData)
-            
         }
     }
     
@@ -70,7 +66,6 @@ class TableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        
         imageUrl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         imageUrl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         imageUrl.heightAnchor.constraint(equalToConstant: 120).isActive = true
@@ -85,4 +80,3 @@ class TableViewCell: UITableViewCell {
         type.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     }
 }
-
