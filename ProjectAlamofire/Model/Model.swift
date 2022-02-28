@@ -16,11 +16,4 @@ struct Card: Decodable {
     let type: String?
     let text: String?
     let imageUrl: String?
-    
-    enum CodinKeys: String, CodingKey {
-        case name 
-        case type
-        case imageUrl
-        case text
-    }
 }
